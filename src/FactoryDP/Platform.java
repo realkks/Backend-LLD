@@ -1,5 +1,6 @@
 package FactoryDP;
 
+// This class is to define platform features as well as extended by platform type
 public class Platform {
     private String pfName;
 
