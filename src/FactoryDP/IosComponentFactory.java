@@ -7,6 +7,7 @@ import FactoryDP.Component.Dropdown.IosDropdown;
 import FactoryDP.Component.Menu.IosMenu;
 import FactoryDP.Component.Menu.Menu;
 
+//This Class is to create objects for Ios Component
 public class IosComponentFactory implements ComponentFactory{
     public Button createButton() {
         return new IosButton();

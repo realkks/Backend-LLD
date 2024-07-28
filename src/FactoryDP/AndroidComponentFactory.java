@@ -7,7 +7,7 @@ import FactoryDP.Component.Dropdown.Dropdown;
 import FactoryDP.Component.Menu.AndroidMenu;
 import FactoryDP.Component.Menu.Menu;
 
-
+// This class is to create object for Android Component
 public class AndroidComponentFactory implements ComponentFactory{
     @Override
     public Button createButton() {
