@@ -1,23 +1,46 @@
 package GeneralCode;
 
-import java.sql.*;
+import java.util.*;
+//Stack
 
 public class General {
     public static void main(String[] args) {
-//        try{
-//            //Class.forName("com.mysql.jc.jdbc.Driver");
-//            // Create object for connection
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","root","Kamlesh@4948");
-//            System.out.println("connection completed");
-//            Statement st = con.createStatement();
-//            ResultSet rs = st.executeQuery("select * from actor");
-//            while (rs.next()){
-//                System.out.println(rs.getInt(1)+"," +rs.getString(2)+","+rs.getString(3)+","+rs.getDate(4));
-//            }
-//            con.close();
-//        }
-//        catch(Exception e){
-//            System.out.println(e);
-//        }
+        int [] a = {1,2,3,4,8,10};
+        int ans = eqIndex(a);
+        System.out.println(ans);
+    }
+    public static int eqIndex(int[] a){
+        int n = a.length;
+        int [] pfSum = new int[n];
+        pfSum[0] = a[0];
+        for(int i=1;i<n;i++){
+            pfSum[i] = pfSum[i-1]+a[i];
+        }
+        int sl=0;
+        int sr = 0;
+        //check for equillibrium index
+        for(int i=0;i<n;i++){
+            if(i==0){
+                sl = 0;
+                sr = pfSum[n-1]-pfSum[i];
+                if(sl==sr)
+                    return i;
+            }
+            else if(i==n-1){
+                sl = pfSum[n-2];
+                sr = 0;
+                if(sl == sr)
+                    return i;
+            }
+            else {
+                sl = pfSum[i - 1];
+                sr = pfSum[n - 1] - pfSum[i];
+                if (sl == sr)
+                    return i;
+            }
+        }
+        return -1;
+
     }
 }
+
